@@ -1,9 +1,12 @@
 import { Component } from '@angular/core';
 
+// Nie używam już, bo mam niżej "inline type"
+/*
 interface MenuItem {
   link: string;
   name: string;
 }
+*/
 
 @Component({
   selector: 'app-main-menu',
@@ -30,7 +33,8 @@ interface MenuItem {
 })
 export class MainMenuComponent {
 
-  menuItems: MenuItem[] = [
+  // Użyty inline type w TS:
+  menuItems: { link: string; name: string; }[] = [
     {link: '/auctions', name: 'Aukcje'},
     {link: '/promotions', name: 'Promocje'},
     {link: '/advices', name: 'Podpowiadamy'},

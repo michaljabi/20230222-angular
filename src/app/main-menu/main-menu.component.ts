@@ -1,5 +1,10 @@
 import { Component } from '@angular/core';
 
+interface MenuItem {
+  link: string;
+  name: string;
+}
+
 @Component({
   selector: 'app-main-menu',
   template: `
@@ -10,9 +15,9 @@ import { Component } from '@angular/core';
 <!--      <div class="collapse navbar-collapse" [class.show]="isMenuOpen">-->
       <div class="collapse navbar-collapse" [ngClass]="{ 'show': isMenuOpen }">
         <ul class="navbar-nav">
-          <li class="nav-item"><a class="nav-link" href="auctions">Aukcje</a></li>
-          <li class="nav-item"><a class="nav-link" href="promotions">Promocje</a></li>
-          <li class="nav-item"><a class="nav-link" href="advices">Podpowiadamy</a></li>
+          <li class="nav-item" *ngFor="let item of menuItems">
+            <a class="nav-link" [href]="item.link">{{item.name}}</a>
+          </li>
         </ul>
       </div>
       <div *ngIf="isMenuOpen; else whatever">🤪</div>
@@ -25,6 +30,11 @@ import { Component } from '@angular/core';
 })
 export class MainMenuComponent {
 
+  menuItems: MenuItem[] = [
+    {link: '/auctions', name: 'Aukcje'},
+    {link: '/promotions', name: 'Promocje'},
+    {link: '/advices', name: 'Podpowiadamy'},
+  ]
   isMenuOpen = false;
 
   handleToggleButtonClick() {

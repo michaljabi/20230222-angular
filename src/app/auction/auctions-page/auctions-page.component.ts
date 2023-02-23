@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AuctionItem } from '../auction-item'
+import { AuctionsService } from '../auctions.service'
 
 @Component({
   // selector: 'app-auctions-page',
@@ -12,21 +13,14 @@ import { AuctionItem } from '../auction-item'
   `,
   styles: []
 })
-export class AuctionsPageComponent {
+export class AuctionsPageComponent implements OnInit{
   // Zahardkodowane przykładowe dane AuctionItem:
-  sampleAuctions: AuctionItem[] = [
-    {
-      id: 2231,
-      imgUrl: 'https://picsum.photos/id/36/600/600',
-      price: 2000,
-      title: 'Części do aparatu'
-    },
-    {
-      description: 'Używany - ale sprawny',
-      id: 2,
-      imgUrl: 'https://picsum.photos/id/48/200/200',
-      price: 4000,
-      title: 'Mac Book'
-    },
-  ]
+  sampleAuctions: AuctionItem[] = []
+
+  constructor(private auctionsService: AuctionsService) {}
+
+  ngOnInit(): void {
+    this.sampleAuctions = this.auctionsService.getAllAuctions();
+  }
+
 }

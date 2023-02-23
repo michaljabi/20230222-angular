@@ -3,11 +3,13 @@ import { CommonModule } from '@angular/common';
 
 import { AuctionRoutingModule } from './auction-routing.module';
 import { AuctionsPageComponent } from './auctions-page/auctions-page.component';
+import { PromotionsPageComponent } from './promotions-page/promotions-page.component';
 
 
 @NgModule({
   declarations: [
-    AuctionsPageComponent
+    AuctionsPageComponent,
+    PromotionsPageComponent
   ],
   imports: [
     CommonModule,

@@ -1,0 +1,16 @@
+### Get all auctions
+GET http://localhost:3000/auctions
+
+### Get one auciton
+GET http://localhost:3000/auctions/3
+
+### Add new auction
+POST http://localhost:3000/auctions
+Content-Type: application/json
+
+{
+  "title": "Mac Book 2",
+  "imgUrl": "https://picsum.photos/id/134/600/600",
+  "description": "Jakiś opis...",
+  "price": 4200
+}

@@ -1,0 +1,45 @@
+{
+  "auctions": [
+    {
+      "id": 1,
+      "title": "Części do aparatu",
+      "imgUrl": "https://picsum.photos/id/36/200/200",
+      "description": "Jakiś opis",
+      "price": 2000
+    },
+    {
+      "id": 2,
+      "title": "Mac Book",
+      "imgUrl": "https://picsum.photos/id/48/200/200",
+      "description": "Używany - ale sprawny",
+      "price": 4000
+    },
+    {
+      "id": 3,
+      "title": "Smartfon",
+      "imgUrl": "https://picsum.photos/id/160/200/200",
+      "price": 800
+    },
+    {
+      "id": 4,
+      "title": "Samochoód",
+      "imgUrl": "https://picsum.photos/id/183/200/200",
+      "description": "Zabytkowy ogórek",
+      "price": 1200
+    },
+    {
+      "title": "Most",
+      "price": 30000,
+      "imgUrl": "https://picsum.photos/id/134/600/600",
+      "description": "stalowy",
+      "id": 5
+    },
+    {
+      "title": "Mac Book 2",
+      "imgUrl": "https://picsum.photos/id/134/600/600",
+      "description": "Jakiś opis...",
+      "price": 4200,
+      "id": 6
+    }
+  ]
+}

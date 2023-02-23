@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http'
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router'
@@ -18,6 +19,7 @@ import { AuctionModule } from './auction/auction.module';
     BrowserModule,
     AppRoutingModule,
     AuctionModule,
+    HttpClientModule,
     RouterModule.forChild([
       // Tutaj powinnyśmy przygotować komponent do wyświetlenia 404:
       { path: '**', component: HeaderComponent}

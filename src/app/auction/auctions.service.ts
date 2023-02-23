@@ -1,5 +1,7 @@
+import { HttpClient } from '@angular/common/http'
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs'
+import { Observable, tap } from 'rxjs'
+import { retry } from 'rxjs/operators'
 import { AuctionItem } from './auction-item'
 
 @Injectable({
@@ -7,23 +9,14 @@ import { AuctionItem } from './auction-item'
 })
 export class AuctionsService {
 
-  constructor() { }
+  // STATELESS serwis (mamy tylko zapytania do back-end)
+  constructor(private httpClient: HttpClient) { }
 
   getAllAuctions(): Observable<AuctionItem[]> {
-    return of([
-      {
-        id: 2231,
-        imgUrl: 'https://picsum.photos/id/36/600/600',
-        price: 2000,
-        title: 'Części do aparatu'
-      },
-      {
-        description: 'Używany - ale sprawny',
-        id: 2,
-        imgUrl: 'https://picsum.photos/id/48/200/200',
-        price: 4000,
-        title: 'Mac Book'
-      },
-    ])
+    return this.httpClient.get<AuctionItem[]>('http://localhost:3000/auctions').pipe(retry(2),
+      tap((p) => {
+         console.log('AUKCJE SĄ TUTAJ', p.length, new Date().toISOString())
+      })
+    )
   }
 }

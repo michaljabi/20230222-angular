@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Observable, of } from 'rxjs'
 import { AuctionItem } from './auction-item'
 
 @Injectable({
@@ -8,8 +9,8 @@ export class AuctionsService {
 
   constructor() { }
 
-  getAllAuctions(): AuctionItem[] {
-    return [
+  getAllAuctions(): Observable<AuctionItem[]> {
+    return of([
       {
         id: 2231,
         imgUrl: 'https://picsum.photos/id/36/600/600',
@@ -23,6 +24,6 @@ export class AuctionsService {
         price: 4000,
         title: 'Mac Book'
       },
-    ]
+    ])
   }
 }

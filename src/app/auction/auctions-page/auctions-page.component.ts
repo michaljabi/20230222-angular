@@ -13,14 +13,16 @@ import { AuctionsService } from '../auctions.service'
   `,
   styles: []
 })
-export class AuctionsPageComponent implements OnInit{
+export class AuctionsPageComponent implements OnInit {
   // Zahardkodowane przykładowe dane AuctionItem:
   sampleAuctions: AuctionItem[] = []
 
   constructor(private auctionsService: AuctionsService) {}
 
   ngOnInit(): void {
-    this.sampleAuctions = this.auctionsService.getAllAuctions();
+    this.auctionsService.getAllAuctions().subscribe((auctions) => {
+        this.sampleAuctions = auctions
+    });
   }
 
 }

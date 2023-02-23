@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { RouterModule } from '@angular/router'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,7 +17,11 @@ import { AuctionModule } from './auction/auction.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    AuctionModule
+    AuctionModule,
+    RouterModule.forChild([
+      // Tutaj powinnyśmy przygotować komponent do wyświetlenia 404:
+      { path: '**', component: HeaderComponent}
+    ])
   ],
   providers: [],
   bootstrap: [AppComponent]

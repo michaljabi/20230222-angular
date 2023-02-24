@@ -17,6 +17,9 @@ import { ShoppingCartPageComponent } from './shopping-cart-page/shopping-cart-pa
     AddAuctionPageComponent,
     ShoppingCartPageComponent
   ],
+  exports: [
+    AuctionCardComponent  // Udostępnij ten komponent dla każdego, kto mnie zaimportuje.
+  ],
   imports: [
     CommonModule,
     AuctionRoutingModule

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { SharedModule } from '../shared/shared.module'
 
 import { AuctionRoutingModule } from './auction-routing.module';
 import { AuctionsPageComponent } from './auctions-page/auctions-page.component';
@@ -22,7 +23,8 @@ import { ShoppingCartPageComponent } from './shopping-cart-page/shopping-cart-pa
   ],
   imports: [
     CommonModule,
-    AuctionRoutingModule
+    AuctionRoutingModule,
+    SharedModule
   ]
 })
 export class AuctionModule { }

@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { MainMenuComponent } from './main-menu/main-menu.component';
 import { AuctionModule } from './auction/auction.module';
+import { AdviceModule } from './advice/advice.module';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { AuctionModule } from './auction/auction.module';
     AppRoutingModule,
     AuctionModule,
     HttpClientModule,
+    AdviceModule,
     RouterModule.forChild([
       // Tutaj powinnyśmy przygotować komponent do wyświetlenia 404:
       { path: '**', component: HeaderComponent}

@@ -1,6 +1,6 @@
 import { HttpErrorResponse } from '@angular/common/http'
-import { Component, OnInit } from '@angular/core';
-import { interval, Observable } from 'rxjs'
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { interval, Observable, Subscription } from 'rxjs'
 import { AuctionItem } from '../auction-item'
 import { AuctionsService } from '../auctions.service'
 
@@ -22,7 +22,7 @@ import { AuctionsService } from '../auctions.service'
   `,
   styles: []
 })
-export class AuctionsPageComponent implements OnInit {
+export class AuctionsPageComponent implements OnInit, OnDestroy {
   // Zahardkodowane przykładowe dane AuctionItem:
   sampleAuctions: AuctionItem[] = []
 
@@ -30,15 +30,27 @@ export class AuctionsPageComponent implements OnInit {
   areAuctionsLoading = false;
   errorMessage = '';
 
+  auctionSub?: Subscription;
   constructor(private auctionsService: AuctionsService) {}
 
+  ngOnDestroy(): void {
+    console.log('AuctionsPageComponent DESTROY!');
+    /*if( this.auctionSub) {
+      this.auctionSub.unsubscribe();
+    }*/
+    this.auctionSub?.unsubscribe();
+  }
+
   ngOnInit(): void {
+    console.log('AuctionsPageComponent ngOnInit!');
     this.areAuctionsLoading = true;
     // tu jest pewien problem, którego nie ma | async
-    this.auctionsService.getAllAuctions().subscribe({
+    this.auctionSub?.unsubscribe();
+    this.auctionSub = this.auctionsService.getAllAuctions().subscribe({
       next: (auctions) => {
         this.sampleAuctions = auctions
         this.areAuctionsLoading = false;
+        console.log('Aukcje przyszły!');
       },
       error: (err: HttpErrorResponse) => {
         this.errorMessage = err.message

@@ -40,6 +40,13 @@
       "description": "Jakiś opis...",
       "price": 4200,
       "id": 6
+    },
+    {
+      "price": 200,
+      "title": "Książki",
+      "description": "test opisu",
+      "imgUrl": "https://picsum.photos/id/20/600/600",
+      "id": 7
     }
   ]
 }

@@ -1,6 +1,8 @@
+import { HttpErrorResponse } from '@angular/common/http'
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms'
 import { InsertAuctionItem } from '../auction-item'
+import { AuctionsService } from '../auctions.service'
 
 @Component({
   templateUrl: './add-auction-page.component.html',
@@ -15,7 +17,10 @@ import { InsertAuctionItem } from '../auction-item'
 })
 export class AddAuctionPageComponent {
 
-  imgId = 200
+  imgId = 20
+
+  constructor(private auctionsService: AuctionsService) {
+  }
 
   get imgUrl(): string {
     return `https://picsum.photos/id/${this.imgId}/600/600`
@@ -33,6 +38,11 @@ export class AddAuctionPageComponent {
         description,
         imgUrl: this.imgUrl
       }
-      console.log(auction)
+      this.auctionsService.addAuction(auction).subscribe({
+        next: () => {
+          form.reset({imgUrl: 20})
+        },
+        error: (err: HttpErrorResponse) => {}
+      })
   }
 }

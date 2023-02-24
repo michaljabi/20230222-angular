@@ -9,7 +9,7 @@ import { HeaderComponent } from './header/header.component';
 import { MainMenuComponent } from './main-menu/main-menu.component';
 import { AuctionModule } from './auction/auction.module';
 import { AdviceModule } from './advice/advice.module';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { SharedModule } from './shared/shared.module'
 
 @NgModule({
   declarations: [
@@ -27,7 +27,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
       // Tutaj powinnyśmy przygotować komponent do wyświetlenia 404:
       { path: '**', component: HeaderComponent}
     ]),
-    FontAwesomeModule
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]

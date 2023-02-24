@@ -29,10 +29,10 @@ interface MenuItem {
       </ng-template>-->
       <div class="text-light">
         <a class="btn btn-primary mx-2" routerLink="/add-auction">
-          <!--<fa-icon icon="plus"></fa-icon>--> Dodaj
+          <fa-icon icon="plus"></fa-icon> Dodaj
         </a>
         <a class="btn btn-secondary ml-2" routerLink="/shopping-cart">
-          <!--<fa-icon icon="shopping-basket"></fa-icon>--> Koszyk
+          <fa-icon icon="shopping-basket"></fa-icon> Koszyk
         </a>
       </div>
     </nav>

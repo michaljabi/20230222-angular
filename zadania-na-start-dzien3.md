@@ -73,11 +73,11 @@ Kod z buttonami do dodania:
 ```html
 <div class="text-light">
   <a class="btn btn-primary">
-    <fa-icon icon="plus"></fa-icon> Dodaj
+    <!--<fa-icon icon="plus"></fa-icon>--> Dodaj
   </a>
   <a class="btn btn-secondary ml-2">
-    <fa-icon icon="shopping-basket"></fa-icon> Koszyk
-  </a>
+    <!--<fa-icon icon="shopping-basket"></fa-icon>--> Koszyk
+ </a>
 </div>
 ```
 

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms'
 import { SharedModule } from '../shared/shared.module'
 
 import { AuctionRoutingModule } from './auction-routing.module';
@@ -24,7 +25,8 @@ import { ShoppingCartPageComponent } from './shopping-cart-page/shopping-cart-pa
   imports: [
     CommonModule,
     AuctionRoutingModule,
-    SharedModule
+    SharedModule,
+    FormsModule,
   ]
 })
 export class AuctionModule { }

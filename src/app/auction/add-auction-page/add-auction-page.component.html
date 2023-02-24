@@ -4,11 +4,11 @@
     <img
       class="img-thumbnail"
       alt="Podgląd fotografii"
-      src="https://picsum.photos/id/1/600/600"
+      [src]="imgUrl"
     />
   </div>
   <div class="col-6">
-    <form>
+    <form #auctionForm="ngForm" (ngSubmit)="handleFormSubmit(auctionForm)" >
       <div class="form-group">
         <label for="auctionTitle">Nazwa aukcji</label>
         <div class="input-group mb-3">
@@ -22,6 +22,7 @@
             type="text"
             name="title"
             required
+            ngModel
             class="form-control"
           />
         </div>
@@ -40,6 +41,7 @@
             type="number"
             name="price"
             required
+            ngModel
             class="form-control"
           />
         </div>
@@ -58,6 +60,7 @@
             type="number"
             name="imgUrl"
             required
+            [(ngModel)]="imgId"
             class="form-control"
           />
         </div>
@@ -71,6 +74,7 @@
             rows="5"
             class="form-control"
             name="description"
+            ngModel
           ></textarea>
         </div>
       </div>
